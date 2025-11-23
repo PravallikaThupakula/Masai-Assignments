@@ -56,11 +56,10 @@ console.log(info?.details?.email);
 
 for (var i = 0; i < 3; i++) {}
 console.log(i); 
-
-
 for (let j = 0; j < 3; j++) {}
 
 let speed;
+let kmph;
 speed = kmph > 60 ? "Fast" : "Normal";
 
 
