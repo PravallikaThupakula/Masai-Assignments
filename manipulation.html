@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM Add Item</title>
+</head>
+<body>
+
+  <ul id="list">
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+  </ul>
+
+  <button id="addBtn">Add Item</button>
+
+  <script>
+
+    let ul = document.querySelector("#list");
+
+    let btn = document.querySelector("#addBtn");
+
+    btn.addEventListener("click", function () {
+      
+      let li = document.createElement("li");
+      li.textContent = "New Item";
+
+     
+      let count = ul.children.length + 1;
+
+      if (count % 2 !== 0) {
+        li.style.fontWeight = "bold";
+        li.style.color = "blue";
+      } else {
+        li.style.fontStyle = "italic";
+        li.style.color = "red";
+      }
+      ul.appendChild(li);
+    });
+  </script>
+
+</body>
+</html>
