@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo App</title>
+  <style>
+    .completed {
+      text-decoration: line-through;
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Todo App</h2>
+
+  <input id="taskInput" type="text" placeholder="Enter task">
+  <button id="addBtn">Add Task</button>
+
+  <br><br>
+
+  <input id="searchInput" type="text" placeholder="Search tasks...">
+
+  <ul id="taskList"></ul>
+
+  <script>
+    const taskInput = document.getElementById("taskInput");
+    const addBtn = document.getElementById("addBtn");
+    const searchInput = document.getElementById("searchInput");
+    const taskList = document.getElementById("taskList");
+
+    let tasks = [];
+
+    // Load tasks from localStorage on page load
+    window.addEventListener("load", () => {
+      const saved = localStorage.getItem("tasks");
+      if (saved) {
+        tasks = JSON.parse(saved);
+      }
+      renderTasks(tasks);
+    });
+
+    // Add task
+    addBtn.addEventListener("click", () => {
+      const text = taskInput.value.trim();
+      if (text === "") return alert("Task cannot be empty!");
+
+      const newTask = {
+        id: Date.now(),
+        text: text,
+        completed: false
+      };
+
+      tasks.push(newTask);
+      saveTasks();
+      renderTasks(tasks);
+      taskInput.value = "";
+    });
+
+    // Render tasks
+    function renderTasks(list) {
+      taskList.innerHTML = "";
+
+      list.forEach(task => {
+        const li = document.createElement("li");
+
+        li.textContent = task.text;
+        if (task.completed) li.classList.add("completed");
+
+        // Mark complete on click
+        li.addEventListener("click", () => {
+          task.completed = !task.completed;
+          saveTasks();
+          renderTasks(tasks);
+        });
+
+        const delBtn = document.createElement("button");
+        delBtn.textContent = "X";
+        delBtn.style.marginLeft = "10px";
+        delBtn.addEventListener("click", (event) => {
+          event.stopPropagation(); 
+          tasks = tasks.filter(t => t.id !== task.id);
+          saveTasks();
+          renderTasks(tasks);
+        });
+
+        li.appendChild(delBtn);
+        taskList.appendChild(li);
+      });
+    }
+
+    // Save to localStorage
+    function saveTasks() {
+      localStorage.setItem("tasks", JSON.stringify(tasks));
+    }
+
+    searchInput.addEventListener("input", () => {
+      const keyword = searchInput.value.toLowerCase();
+      const filtered = tasks.filter(task =>
+        task.text.toLowerCase().includes(keyword)
+      );
+      renderTasks(filtered);
+    });
+
+  </script>
+</body>
+</html>
