@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Book Management - Admin</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="container">
+    <h1>Admin - Book Management Page</h1>
+    <nav>
+      <a class="link" href="index.html">Home</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Add Book Form</h2>
+      <form id="addBookForm">
+        <div class="row">
+          <label for="title">Title</label>
+          <input id="title" required type="text" placeholder="Book Title">
+        </div>
+        <div class="row">
+          <label for="author">Author</label>
+          <input id="author" required type="text" placeholder="Author Name">
+        </div>
+        <div class="row">
+          <label for="category">Category</label>
+          <select id="category" required>
+            <option value="Fiction">Fiction</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Technical">Technical</option>
+          </select>
+        </div>
+        <div class="row actions">
+          <button id="addBtn" class="btn" type="submit">Add Book</button>
+          <button id="clearBtn" class="btn secondary" type="button">Clear Form</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card controls">
+      <h2>Controls</h2>
+      <div class="row">
+        <label>Sort</label>
+        <button id="sortAsc" class="btn small">Sort by Title A → Z</button>
+        <button id="sortDesc" class="btn small">Sort by Title Z → A</button>
+      </div>
+      <div class="row">
+        <label for="filter">Filter by Category</label>
+        <select id="filter">
+          <option value="All">All</option>
+          <option value="Fiction">Fiction</option>
+          <option value="Comedy">Comedy</option>
+          <option value="Technical">Technical</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Books</h2>
+      <div id="booksGrid" class="grid">
+      </div>
+    </section>
+  </main>
+
+  <script src="admin.js"></script>
+</body>
+</html>
