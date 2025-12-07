@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Card</title>
+
+    <style>
+        .card{
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-family: Arial, sans-serif;
+            margin: 20px auto;
+        }
+
+        .card img{
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .title{
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .subtitle{
+            color: gray;
+            margin-bottom: 10px;
+        }
+
+        .rating-box{
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 3px 6px;
+            border-radius: 5px;
+            font-size: 14px;
+            margin-right: 5px;
+        }
+
+        .rating-count{
+            color: gray;
+        }
+
+        .assured{
+            width: 70px;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        .price{
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .old-price{
+            text-decoration: line-through;
+            color: gray;
+            margin-left: 8px;
+        }
+
+        .offer{
+            color: green;
+            font-weight: bold;
+            margin-left: 8px;
+        }
+
+        .bank-offer{
+            margin-top: 10px;
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/smartwatch/w/x/h/-original-imahfa7xspmxemvj.jpeg" alt="Watch Image">
+
+        <div class="title">SAMSUNG Galaxy Watch6 LTE</div>
+        <div class="subtitle">Graphite Strap, 44mm</div>
+
+        <span class="rating-box">4.3 ★</span>
+        <span class="rating-count">(973)</span>
+        <img src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/fa_62673a.png" class="assured">
+
+        <div style="margin-top:10px;">
+            <span class="price">₹18,999</span>
+            <span class="old-price">₹41,999</span>
+            <span class="offer">54% off</span>
+        </div>
+
+        <div class="bank-offer">Bank Offer</div>
+    </div>
+
+</body>
+</html>
