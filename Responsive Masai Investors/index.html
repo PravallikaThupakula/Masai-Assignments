@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Investors Grid (Responsive)</title>
+
+<style>
+  :root{
+    --card-bg: #ffffff;
+    --card-shadow: 0 6px 18px rgba(34,34,34,0.06);
+    --muted: #7a7a7a;
+    --accent: #1f6fb7;
+    --logo-size: 36px;
+    --gap: 28px;
+    --radius: 10px;
+  }
+
+  body{
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    margin: 28px;
+    background: #fafafa;
+    color: #222;
+  }
+
+  .page-head{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:18px;
+  }
+
+  .page-head h1{
+    font-size:22px;
+    margin:0;
+    font-weight:600;
+  }
+
+
+  .grid{
+    display: grid;
+    gap: var(--gap);
+
+    grid-template-columns: repeat(4, 1fr);
+    align-items:start;
+    width: min(1200px, 100%);
+    margin: 0 auto;
+  }
+
+  .card{
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform .18s ease, box-shadow .18s ease;
+  }
+
+  .card:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 14px 32px rgba(34,34,34,0.10);
+  }
+
+  .card .photo{
+    width:100%; 
+    height:100%;
+    object-fit:contain;
+    display:block;
+    background: #ddd;
+  }
+
+  .card .body{
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .name{
+    font-weight: 700;
+    font-size: 15px;
+    margin: 0;
+    color: #222;
+  }
+
+  .role{
+    margin: 0;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .brand-row{
+    margin-top: 10px;
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    gap:10px;
+  }
+
+  .brand-logo{
+    width: var(--logo-size);
+    height: var(--logo-size);
+    object-fit: contain;
+    filter: none;
+    opacity: 0.95;
+  }
+
+  .brand-name{
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .card .body::after{
+    content: "";
+    display:block;
+    height: 1px;
+    margin-top: 8px;
+    background: linear-gradient(90deg, rgba(0,0,0,0.03), rgba(0,0,0,0.02));
+  }
+
+  @media (max-width: 992px){
+    .grid{
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .card .photo{ height: 200px; }
+  }
+
+  @media (max-width: 600px){
+    body{ margin: 16px; }
+    .grid{
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+    .card .photo{ height: 180px; }
+    .page-head h1{ font-size: 18px; }
+  }
+
+  @media (max-width: 360px){
+    .grid{ grid-template-columns: 1fr; }
+  }
+
+</style>
+</head>
+<body>
+
+  <div class="page-head">
+    <h1>Masai Investors — Responsive Grid</h1>
+  </div>
+
+  <main>
+    <div class="grid">
+
+      <article class="card">
+        <img class="photo" alt="Vijay Shekhar Sharma" src="https://cdn.masaischool.com/masai-website/Vijay_Shekhar_Sharma_Paytm_96f52579b8.jpg"/>
+        <div class="body">
+          <h3 class="name">Vijay Shekhar Sharma</h3>
+          <p class="role">Founder &amp; CEO</p>
+
+          <div class="brand-row">
+            <img class="brand-logo" alt="Paytm logo" src="https://cdn.masaischool.com/masai-website/paytm_rect_06df45a24f.svg"/>
+            <div class="brand-name">Paytm</div>
+          </div>
+        </div>
+      </article>
+
+
+      <article class="card">
+        <img class="photo" alt="Kunal Shah" src="https://cdn.masaischool.com/masai-website/Rectangle_427_637d69bb57.png"/>
+         <div class="body">
+          <h3 class="name">Kunal Shah</h3>
+          <p class="role">Founder</p>
+
+          <div class="brand-row">
+            <img class="brand-logo" alt="CRED logo" src="https://cdn.masaischool.com/masai-website/cred_0a47d7b4f8.png"/>
+            <div class="brand-name">CRED</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="photo" alt="Amrish Rau" src="https://cdn.masaischool.com/masai-website/amrish_rau_pine_labs_144e5e587c.jpg"/>
+        <div class="body">
+          <h3 class="name">Amrish Rau</h3>
+          <p class="role">CEO</p>
+
+          <div class="brand-row">
+            <img class="brand-logo" alt="Pine Labs logo" src="https://cdn.masaischool.com/masai-website/pine_labs_0aa2407434.png"/>
+            <div class="brand-name">Pine Labs</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="photo" alt="Sampad Swain" src="https://cdn.masaischool.com/masai-website/Sampad_swain_Instamojo_f12bf6341e.jpg"/>
+        <div class="body">
+          <h3 class="name">Sampad Swain</h3>
+          <p class="role">Co-founder &amp; CEO</p>
+
+          <div class="brand-row">
+            <img class="brand-logo" alt="Instamojo logo" src="https://cdn.masaischool.com/masai-website/instamojo_8763e704f7.png"/>
+            <div class="brand-name">Instamojo</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="photo" alt="Ankush Sachdeva" src="https://cdn.masaischool.com/masai-website/Ankush_Sachdeva_Sharechat_4e44dbbe6b.jpg"/>
+        <div class="body">
+          <h3 class="name">Ankush Sachdeva</h3>
+          <p class="role">Co-Founder &amp; CEO</p>
+
+          <div class="brand-row">
+            <img class="brand-logo" alt="ShareChat logo" src="https://cdn.masaischool.com/masai-website/sharechat_rect_73d95cd4e1.svg"/>
+            <div class="brand-name">ShareChat</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="photo" alt="Bhanu Pratap Singh" src="https://cdn.masaischool.com/masai-website/bhanu_pratap_singh_sharechat_11fdd7b47a.jpg"/>
+        <div class="body">
+          <h3 class="name">Bhanu Pratap Singh</h3>
+          <p class="role">Co-Founder &amp; CTO</p>
+
+          <div class="brand-row">
+            <img class="brand-logo" alt="ShareChat logo" src="https://cdn.masaischool.com/masai-website/sharechat_rect_73d95cd4e1.svg"/>
+            <div class="brand-name">ShareChat</div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+</body>
+</html>

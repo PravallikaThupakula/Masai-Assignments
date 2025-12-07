@@ -1,9 +1,6 @@
-// displayTodos.js
 export function displayTodos(data) {
-  // data is an array of JS objects that came from JSON
   const container = document.getElementById("todos-container");
-  container.innerHTML = ""; // clear old content
-
+  container.innerHTML = ""; 
   data.forEach((todo) => {
     const div = document.createElement("div");
     div.className = "todo-item";
