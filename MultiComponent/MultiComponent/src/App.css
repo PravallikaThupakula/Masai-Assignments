@@ -1,0 +1,19 @@
+.navbar {
+  background-color: #4A90E2;
+  padding: 15px;
+  color: white;
+  font-size: 20px;
+}
+.content {
+  text-align: center;
+  padding: 40px;
+  font-size: 22px;
+}
+
+.footer {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 14px;
+  color: #555;
+  text-align: center;
+}
