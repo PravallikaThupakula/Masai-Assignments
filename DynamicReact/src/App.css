@@ -1,0 +1,41 @@
+.page {
+  padding: 20px;
+  text-align: center;
+}
+
+.form input {
+  display: block;
+  margin: 10px auto;
+  padding: 8px;
+  width: 220px;
+}
+
+button {
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+}
+
+.todo-card {
+  margin: 10px auto;
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.todo-card a {
+  text-decoration: none;
+  color: #333;
+}
+
+.logout {
+  margin-bottom: 20px;
+}
