@@ -1,11 +1,11 @@
 {
-  "dependencies": {
-    "vite": "^7.3.0"
-  },
-  "name": "masai-assignments",
+  "name": "studentmanagementsystem",
   "version": "1.0.0",
-  "main": "Blockscope.js",
-  "devDependencies": {},
+  "main": "index.js",
+  {
+  "type": "module"
+}
+
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,4 +13,6 @@
   "author": "",
   "license": "ISC",
   "description": ""
+  
+  
 }
