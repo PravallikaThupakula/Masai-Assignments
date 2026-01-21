@@ -1,0 +1,75 @@
+-- Drop tables if they already exist (for clean execution)
+DROP TABLE IF EXISTS orders;
+DROP TABLE IF EXISTS users;
+
+-- Create users table
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    email TEXT UNIQUE NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Create orders table with FOREIGN KEY relationship
+CREATE TABLE orders (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER NOT NULL,
+    amount INTEGER NOT NULL,
+    status TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_user
+        FOREIGN KEY (user_id)
+        REFERENCES users(id)
+        ON DELETE RESTRICT
+);
+INSERT INTO users (name, email) VALUES
+('Alice', 'alice@gmail.com'),
+('Bob', 'bob@gmail.com'),
+('Charlie', 'charlie@gmail.com'),
+('David', 'david@gmail.com'),
+('Emma', 'emma@gmail.com');
+INSERT INTO orders (user_id, amount, status) VALUES
+(1, 1200, 'placed'),
+(1, 800, 'delivered'),
+(2, 500, 'placed'),
+(2, 1500, 'cancelled'),
+(2, 700, 'delivered'),
+(3, 2000, 'placed'),
+(4, 950, 'delivered'),
+(5, 400, 'placed'),
+(1, 600, 'delivered');
+
+
+SELECT * FROM orders;
+SELECT * FROM users;
+
+SELECT * FROM orders
+WHERE user_id = 1;
+
+SELECT u.id, u.name, COUNT(o.id) AS total_orders
+FROM users u
+JOIN orders o ON u.id = o.user_id
+GROUP BY u.id, u.name
+HAVING COUNT(o.id) > 1;
+
+SELECT u.name, SUM(o.amount) AS total_amount
+FROM users u
+JOIN orders o ON u.id = o.user_id
+GROUP BY u.name;
+UPDATE users
+SET email = 'alice_new@gmail.com'
+WHERE id = 1;
+UPDATE orders
+SET status = 'completed'
+WHERE user_id = 2;
+
+UPDATE orders
+SET amount = 900
+WHERE id = 3;
+
+
+DELETE FROM orders
+WHERE id = 8;
+
+DELETE FROM orders
+WHERE user_id = 4;

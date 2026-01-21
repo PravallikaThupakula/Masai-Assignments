@@ -1,0 +1,65 @@
+| Column Name | Data Type   |
+| ----------- | ----------- |
+| id          | SERIAL (PK) |
+| name        | TEXT        |
+| email       | TEXT        |
+| age         | INTEGER     |
+| department  | TEXT        |
+| salary      | INTEGER     |
+| created_at  | TIMESTAMP   |
+
+
+SELECT COUNT(*) AS total_employees
+FROM employees;
+
+SELECT AVG(age) AS average_age
+FROM employees;
+
+SELECT 
+    MIN(salary) AS minimum_salary,
+    MAX(salary) AS maximum_salary
+FROM employees;
+
+
+SELECT department, COUNT(*) AS employee_count
+FROM employees
+GROUP BY department;
+
+
+SELECT COUNT(*) AS high_salary_employees
+FROM employees
+WHERE salary > 50000;
+
+
+SELECT department, COUNT(*) AS total_employees
+FROM employees
+GROUP BY department;
+
+SELECT department, COUNT(*) AS total_employees
+FROM employees
+GROUP BY department
+HAVING COUNT(*) > 1;
+
+
+SELECT department, COUNT(*) AS total_employees
+FROM employees
+GROUP BY department
+ORDER BY total_employees DESC;
+
+
+SELECT *
+FROM employees
+ORDER BY created_at DESC
+LIMIT 3;
+
+
+SELECT *
+FROM employees
+ORDER BY salary DESC
+LIMIT 5;
+
+
+SELECT *
+FROM employees
+WHERE department = 'IT'
+ORDER BY age DESC;
